@@ -110,4 +110,17 @@ var currentPoster;
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
+const displayRandomImage = function () {
+  // const theIndex = getRandomIndex(images);
+  return images[getRandomIndex(images)];
+}
+const displayRandomTitle = function (){
+  return titles[getRandomIndex(titles)];
+}
 
+const displayRandomQuote = function() {
+  return quotes[getRandomIndex(quotes)]
+}
+posterImage.src = displayRandomImage();
+posterTitle.innerText = displayRandomTitle();
+posterQuote.innerText = displayRandomQuote();
