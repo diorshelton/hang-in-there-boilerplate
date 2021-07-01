@@ -107,7 +107,7 @@ var currentPoster;
 // event listeners go here 👇
 mainPoster.addEventListener("click", function(event) {
   if(event.target.className === "show-random") {
-    randomPoster();
+    displayRandomPoster();
   }
 });
 
@@ -125,9 +125,9 @@ function displayRandomTitle(){
 function displayRandomQuote() {
   return quotes[getRandomIndex(quotes)];
 }
-function randomPoster() {
+function displayRandomPoster() {
   posterImage.src = displayRandomImage();
   posterTitle.innerText = displayRandomTitle();
   posterQuote.innerText = displayRandomQuote();
 }
-randomPoster();
+displayRandomPoster();
