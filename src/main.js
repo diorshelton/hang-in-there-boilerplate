@@ -5,9 +5,12 @@ var posterQuote = document.querySelector('.poster-quote');
 var mainPoster = document.querySelector('.main-poster');
 var makeYourOwnPoster = document.querySelector('.poster-form');
 var savedPostersPage = document.querySelector('.saved-posters');
-var showMainButton = document.querySelector('.show-main');
+var nevermindButton = document.querySelector('.show-main');
 var backToMainButton = document.querySelector('.back-to-main');
-
+var showRandomButton = document.querySelector('.show-random');
+var makeYourOwnButton = document.querySelector('.show-form');
+var savedPostersButton = document.querySelector('.show-saved');
+var showMyPosterButton = document.querySelector('.make-poster');
 // we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
@@ -110,20 +113,24 @@ var savedPosters = [];
 var currentPoster;
 
 // event listeners go here 👇
-mainPoster.addEventListener("click", function(event) {
-  if(event.target.className === "show-random") {
-    displayRandomPoster();
-  } else if (event.target.className === "show-form") {
-    toggleForm();
-  } else if (event.target.className === "show-saved") {
-    toggleSavedPosters();
-  }
+savedPostersButton.addEventListener('click', function(event) {
+  toggleSavedPosters();
+})
+showRandomButton.addEventListener('click', function(event) {
+  displayRandomPoster();
 }) 
-showMainButton.addEventListener("click", function(event) {
+makeYourOwnButton.addEventListener('click', function(event) {
   toggleForm();
 })
-backToMainButton.addEventListener("click", function(event) {
+nevermindButton.addEventListener('click', function(event) {
+  toggleForm();
+})
+backToMainButton.addEventListener('click', function(event) {
   toggleSavedPosters();
+})
+showMyPosterButton.addEventListener('click', function(event) {
+  event.preventDefault()
+  createYourOwnPoster();
 })
 
 // functions and event handlers go here 👇
@@ -155,5 +162,8 @@ function toggleForm() {
 function toggleSavedPosters() {
   toggleMainPage();
   savedPostersPage.classList.toggle("hidden");
+}
+function createYourOwnPoster(){
+  var posterImageLink = document.querySelector('#poster-image-url').value;
 }
 displayRandomPoster();
