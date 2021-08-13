@@ -8,15 +8,17 @@ var savedPostersPage = document.querySelector('.saved-posters');
 var nevermindButton = document.querySelector('.show-main');
 var backToMainButton = document.querySelector('.back-to-main');
 var showRandomButton = document.querySelector('.show-random');
-var makeYourOwnButton = document.querySelector('.show-form');
+var myopButton = document.querySelector('.show-form');
 var savedPostersButton = document.querySelector('.show-saved');
-var showMyPosterButton = document.querySelector('.make-poster');
+var showMyCreatedPosterButton = document.querySelector('.make-poster');
+var posterForm = document.querySelector('.form');
+
 // we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
   "./assets/bridge.jpg",
   "./assets/butterfly.jpg",
-  "./assets/cliff.jpg",
+  "./assets/cliff.jpg", 
   "./assets/elephant.jpg",
   "./assets/flock.jpg",
   "./assets/fox.jpg",
@@ -113,23 +115,14 @@ var savedPosters = [];
 var currentPoster;
 
 // event listeners go here 👇
-savedPostersButton.addEventListener('click', function(event) {
-  toggleSavedPosters();
-})
-showRandomButton.addEventListener('click', function(event) {
-  displayRandomPoster();
-}) 
-makeYourOwnButton.addEventListener('click', function(event) {
-  toggleForm();
-})
-nevermindButton.addEventListener('click', function(event) {
-  toggleForm();
-})
-backToMainButton.addEventListener('click', function(event) {
-  toggleSavedPosters();
-})
-showMyPosterButton.addEventListener('click', function(event) {
-  event.preventDefault()
+savedPostersButton.addEventListener('click', toggleSavedPosters);
+showRandomButton.addEventListener('click',displayRandomPoster) 
+myopButton.addEventListener('click', toggleForm)
+nevermindButton.addEventListener('click', toggleForm)
+backToMainButton.addEventListener('click', toggleSavedPosters)
+
+showMyCreatedPosterButton.addEventListener('click', function(e) {
+  e.preventDefault();
   createYourOwnPoster();
 })
 
@@ -156,14 +149,16 @@ function toggleMainPage() {
   mainPoster.classList.toggle("hidden");
 }
 function toggleForm() {
-  toggleMainPage()
+  mainPoster.classList.toggle("hidden");
   makeYourOwnPoster.classList.toggle("hidden");
 }
 function toggleSavedPosters() {
   toggleMainPage();
   savedPostersPage.classList.toggle("hidden");
 }
-function createYourOwnPoster(){
-  var posterImageLink = document.querySelector('#poster-image-url').value;
+function createYourOwnPoster() {
+  var posterImageLink = document.getElementById('poster-image-url').value;
+  var createdPosterTitle = document.getElementById('poster-title').value;
+  var createdPosterQuote = document.getElementById('poster-quote').value;
 }
 displayRandomPoster();
