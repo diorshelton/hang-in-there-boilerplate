@@ -124,7 +124,7 @@ backToMainButton.addEventListener('click', toggleSavedPosters)
 showMyCreatedPosterButton.addEventListener('click', function(e) {
   e.preventDefault();
   createYourOwnPoster();
-  toggleMainPage();
+  toggleForm();
 })
 
 // functions and event handlers go here 👇
@@ -150,8 +150,8 @@ function toggleMainPage() {
   mainPoster.classList.toggle("hidden");
 }
 function toggleForm() {
-  mainPoster.classList.toggle("hidden");
   makeYourOwnPoster.classList.toggle("hidden");
+  toggleMainPage();
 }
 function toggleSavedPosters() {
   toggleMainPage();
