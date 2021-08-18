@@ -124,6 +124,7 @@ backToMainButton.addEventListener('click', toggleSavedPosters)
 showMyCreatedPosterButton.addEventListener('click', function(e) {
   e.preventDefault();
   createYourOwnPoster();
+  toggleMainPage();
 })
 
 // functions and event handlers go here 👇
@@ -156,9 +157,18 @@ function toggleSavedPosters() {
   toggleMainPage();
   savedPostersPage.classList.toggle("hidden");
 }
+
 function createYourOwnPoster() {
+  // grab poster form values
   var posterImageLink = document.getElementById('poster-image-url').value;
   var createdPosterTitle = document.getElementById('poster-title').value;
   var createdPosterQuote = document.getElementById('poster-quote').value;
+
+  var inspoPoster = new Poster (posterImageLink, createdPosterTitle, createdPosterQuote);
+
+  posterImage.src = inspoPoster.imageURL;
+  posterTitle.innerText = inspoPoster.title;
+  posterQuote.innerText = inspoPoster.quote;
+  return inspoPoster;
 }
 displayRandomPoster();
