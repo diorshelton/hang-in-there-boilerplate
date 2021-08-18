@@ -154,8 +154,8 @@ function toggleForm() {
   toggleMainPage();
 }
 function toggleSavedPosters() {
-  toggleMainPage();
   savedPostersPage.classList.toggle("hidden");
+  toggleMainPage();
 }
 
 function createYourOwnPoster() {
