@@ -12,6 +12,11 @@ var myopButton = document.querySelector('.show-form');
 var savedPostersButton = document.querySelector('.show-saved');
 var showMyCreatedPosterButton = document.querySelector('.make-poster');
 var posterForm = document.querySelector('.form');
+// grab poster form values
+var posterImageLink = document.getElementById('poster-image-url').value;
+var createdPosterTitle = document.getElementById('poster-title').value;
+var createdPosterQuote = document.getElementById('poster-quote').value;
+
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -159,16 +164,16 @@ function toggleSavedPosters() {
 }
 
 function createYourOwnPoster() {
-  // grab poster form values
-  var posterImageLink = document.getElementById('poster-image-url').value;
-  var createdPosterTitle = document.getElementById('poster-title').value;
-  var createdPosterQuote = document.getElementById('poster-quote').value;
-
   var inspoPoster = new Poster (posterImageLink, createdPosterTitle, createdPosterQuote);
+  images.push(inspoPoster.imageURL);
+  titles.push(inspoPoster.titles);
+  quotes.push(inspoPoster.quote);
+
 
   posterImage.src = inspoPoster.imageURL;
   posterTitle.innerText = inspoPoster.title;
   posterQuote.innerText = inspoPoster.quote;
+
   return inspoPoster;
 }
 displayRandomPoster();
